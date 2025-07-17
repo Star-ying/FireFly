@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        IsPlaying = true;
     }
     public void StartGame()
     {
