@@ -15,7 +15,15 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
   m_IsActive: 0
+=======
+<<<<<<< HEAD
+  m_IsActive: 0
+=======
+  m_IsActive: 1
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!4 &2237370682940069791
 Transform:
   m_ObjectHideFlags: 0
@@ -151,7 +159,14 @@ Transform:
   - {fileID: 7646820698620946209}
   - {fileID: 6820077097532420416}
   - {fileID: 2237370682940069791}
+<<<<<<< HEAD
   - {fileID: 1917924454531512886}
+=======
+<<<<<<< HEAD
+  - {fileID: 1917924454531512886}
+=======
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7181922525788220161
@@ -166,6 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd9b1445e12c6b4c916a80692aa0e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
   isSaMu: 0
   isFight: 0
   isAttack: 0
@@ -256,6 +275,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+<<<<<<< HEAD
+=======
+=======
+  isRipple: 0
+  isAttack: 0
+  isAbove: 0
+  isFight: 0
+  isFire: 0
+  isSaMu: 0
+  fight_r: 2
+  Ray_r: 10
+  bullets: 0
+  bulletSize: 50
+  energy: 100
+  L_energy: 0
+  time: 0
+  moveSpeed: 15
+  movement: {x: 0, y: 0}
+  x: 0
+  y: 0
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!1 &2339511543068862175
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +853,10 @@ Transform:
   - {fileID: 5816618789735582431}
   m_Father: {fileID: 1190716334113058631}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!1 &5603409307767605639
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +891,11 @@ Transform:
   - {fileID: 2688683440596332503}
   m_Father: {fileID: 1190716334113058631}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!1 &5611802510196010801
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +943,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d9aedc78d3dc240846f3a9629b5d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  samu: {fileID: 7617527197364130024}
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!212 &5559228946953690289
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1594,7 +1651,14 @@ GameObject:
   - component: {fileID: 386654865894915998}
   - component: {fileID: 2623129247030420377}
   - component: {fileID: 1296546267020961563}
+<<<<<<< HEAD
   - component: {fileID: 3510406969029101482}
+=======
+<<<<<<< HEAD
+  - component: {fileID: 3510406969029101482}
+=======
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
   m_Layer: 0
   m_Name: samu
   m_TagString: Player
@@ -1725,12 +1789,24 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< HEAD
   m_IsTrigger: 0
+=======
+<<<<<<< HEAD
+  m_IsTrigger: 0
+=======
+  m_IsTrigger: 1
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.1472335
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!114 &3510406969029101482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,6 +1851,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1917924454531512886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!1 &7948425721409018637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1884,15 @@ Transform:
   m_GameObject: {fileID: 7948425721409018637}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 1.86, y: -0, z: 0.026628796}
+=======
+<<<<<<< HEAD
+  m_LocalPosition: {x: 1.86, y: -0, z: 0.026628796}
+=======
+  m_LocalPosition: {x: 1.86, y: 0.39, z: 0.026628796}
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
   m_LocalScale: {x: 4.1052303, y: 1.6376641, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1945,14 +2034,29 @@ GameObject:
   - component: {fileID: 1242571361526789478}
   - component: {fileID: 2279017349571333693}
   - component: {fileID: 5617685144336600671}
+<<<<<<< HEAD
   - component: {fileID: 3942979421686899310}
+=======
+<<<<<<< HEAD
+  - component: {fileID: 3942979421686899310}
+=======
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
   m_Layer: 0
   m_Name: liuying
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
   m_IsActive: 0
+=======
+<<<<<<< HEAD
+  m_IsActive: 0
+=======
+  m_IsActive: 1
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!4 &5549959100703989831
 Transform:
   m_ObjectHideFlags: 0
@@ -2049,7 +2153,15 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< HEAD
   m_IsTrigger: 0
+=======
+<<<<<<< HEAD
+  m_IsTrigger: 0
+=======
+  m_IsTrigger: 1
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.09212494, y: 0.64489174}
@@ -2082,6 +2194,10 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!114 &3942979421686899310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2094,6 +2210,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ee5d81813dc164d8eab0a0fffb9536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
+>>>>>>> 6c948f36e6179a08fbe9ba9fca2096a98d01a22a
 --- !u!1 &8810219626171058096
 GameObject:
   m_ObjectHideFlags: 0
