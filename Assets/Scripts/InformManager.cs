@@ -17,8 +17,13 @@ public class InformManager : MonoBehaviour
     public InputField Password_r;
     public InputField cir_Password;
     public GameObject UI_Massage;
+<<<<<<< HEAD
     public GameObject Canvas1;
     public GameObject Canvas2;
+=======
+    public GameObject Carvas1;
+    public GameObject Carvas2;
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     public GameObject Role_Select;
     public bool isLogin = true;
     private string Name;
@@ -41,8 +46,13 @@ public class InformManager : MonoBehaviour
     }
     public void AddArchive()
     {
+<<<<<<< HEAD
         Canvas2.transform.Find("Button1").gameObject.SetActive(false);
         Canvas2.transform.Find("Button2").gameObject.SetActive(false);
+=======
+        Carvas2.transform.Find("Button1").gameObject.SetActive(false);
+        Carvas2.transform.Find("Button2").gameObject.SetActive(false);
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
         ButtonEvent.Archive += ArchiveEvent;
     }
     public void DeleteArchive()
@@ -65,14 +75,28 @@ public class InformManager : MonoBehaviour
             Player.Instance.Exp = Convert.ToInt32(archive.Find("Exp").GetComponent<Text>().text.Split("Exp:")[1]);
             Player.Instance.Level = Convert.ToInt32(archive.Find("Level").GetComponent<Text>().text.Split("Level:")[1]);
             Player.Instance.transform.Find("Role").Find($"{Name}").gameObject.SetActive(true);
+<<<<<<< HEAD
             Canvas2.transform.Find("Button1").gameObject.SetActive(true);
             Canvas2.transform.Find("Button2").gameObject.SetActive(true);
+=======
+            SqliteDataReader reader = sql.ReadTable("Role", new string[] { "Health", "Attack", "Defense" }, new string[] { "Name" }, new string[] { "=" }, new string[] { Name }, new string[] { });
+            Player.Instance.health = Convert.ToInt32(reader.GetValue(0));
+            Player.Instance.attack = Convert.ToInt32(reader.GetValue(1));
+            Player.Instance.defense = Convert.ToInt32(reader.GetValue(2));
+            Carvas2.transform.Find("Button1").gameObject.SetActive(true);
+            Carvas2.transform.Find("Button2").gameObject.SetActive(true);
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
         }
     }
     public void AddRole()
     {
+<<<<<<< HEAD
         Canvas2.transform.Find("Button3").gameObject.SetActive(false);
         Canvas2.transform.Find("Button4").gameObject.SetActive(false);
+=======
+        Carvas2.transform.Find("Button3").gameObject.SetActive(false);
+        Carvas2.transform.Find("Button4").gameObject.SetActive(false);
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
         // 订阅按钮点击事件
         ButtonEvent.Role += RoleEvent;
     }
@@ -85,8 +109,20 @@ public class InformManager : MonoBehaviour
     {
         Name = clickedButton.name;
         Player.Instance.transform.Find("Role").Find($"{Name}").gameObject.SetActive(true);
+<<<<<<< HEAD
         Canvas2.transform.Find("Button3").gameObject.SetActive(true);
         Canvas2.transform.Find("Button4").gameObject.SetActive(true);
+=======
+        SqliteDataReader reader = sql.ReadTable("Role", new string[] { "Health", "Attack", "Defense" }, new string[] { "Name" }, new string[] { "=" }, new string[] { $"{Name}" }, new string[] { });
+        while (reader.Read())
+        {
+            Player.Instance.health = Convert.ToInt32(reader.GetValue(0));
+            Player.Instance.attack = Convert.ToInt32(reader.GetValue(1));
+            Player.Instance.defense = Convert.ToInt32(reader.GetValue(2));
+        }
+        Carvas2.transform.Find("Button3").gameObject.SetActive(true);
+        Carvas2.transform.Find("Button4").gameObject.SetActive(true);
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     }
     public void Send()
     {
@@ -104,7 +140,11 @@ public class InformManager : MonoBehaviour
                             StartCoroutine(massage("登录成功"));
                             reader = sql.ReadTable("Archive", new string[] {"ID","Name","Level","Exp" }, new string[] { "P_Name" }, new string[] { "=" }, new string[] { $"{Name_l.text}" },new string[] { });
                             int i = 0;
+<<<<<<< HEAD
                             Transform roles = Canvas2.transform.Find("archive");
+=======
+                            Transform roles = Carvas2.transform.Find("archive");
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
                             while (reader.Read() && i < 12)
                             {
                                 Transform archive = roles.Find($"Archive{i}");
@@ -169,14 +209,23 @@ public class InformManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (str.Equals("登录成功") || str.Equals("注册成功"))
         {
+<<<<<<< HEAD
             Canvas1.SetActive(false);
             Canvas2.SetActive(true);
+=======
+            Carvas1.SetActive(false);
+            Carvas2.SetActive(true);
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
         }
         UI_Massage.SetActive(false);
     }
     public void InsertRole()
     {
+<<<<<<< HEAD
         long id = sql.Count("Archive") + 1;
+=======
+        long id = Convert.ToInt64(sql.Count("Archive")) + 1;
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
         sql.InsertValues("Archive", new Dictionary<string, object> { ["ID"] = id, ["Name"] = Name, ["P_Name"] = P_Name });
         Player.Instance.Exp = 0;
         Player.Instance.Level = 1;
@@ -185,6 +234,7 @@ public class InformManager : MonoBehaviour
     {
         sql.CloseConnection();
     }
+<<<<<<< HEAD
     public void GetEquipments()
     {
         reader = sql.ReadTable("Equipment", new string[] { "*" }, new string[] { "A_ID" }, new string[] { "=" }, new string[] { $"{id}" }, new string[] { });
@@ -196,4 +246,6 @@ public class InformManager : MonoBehaviour
             Player.Instance.SetEquipment($"{reader.GetValue(i)}", $"{ reader1.GetValue(1)}");
         }
     }
+=======
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
 }

@@ -128,7 +128,11 @@ public class SQLiteHelper
         var values = new List<string>();
         var parameters = new Dictionary<string, object>();
         int paramIndex = 0;
+<<<<<<< HEAD
         dataReader = ReadItem(tableName);
+=======
+        dataReader = ExecuteQuery($"PRAGMA table_info({tableName})");
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
         while(dataReader.Read())
         {
             object value = DBNull.Value;
@@ -262,11 +266,16 @@ public class SQLiteHelper
     /// </summary>
     /// <param name="tableName">±íÃû</param>
     /// <returns></returns>
+<<<<<<< HEAD
     public long Count(string tableName)
+=======
+    public object Count(string tableName)
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         dbCommand = dbConnection.CreateCommand();
         dbCommand.CommandText = $"SELECT COUNT(*) FROM {tableName}";
         dataReader = dbCommand.ExecuteReader();
+<<<<<<< HEAD
         return (long)dataReader.GetValue(0);
     }
     /// <summary>
@@ -277,5 +286,8 @@ public class SQLiteHelper
     public SqliteDataReader ReadItem(string tableName)
     {
         return ExecuteQuery($"PRAGMA table_info({tableName})");
+=======
+        return dataReader.GetValue(0);
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     }
 }

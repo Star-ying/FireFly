@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+<<<<<<< HEAD
 using System;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public static Player Instance { get;private set; }
+=======
+
+public class Player : MonoBehaviour
+{
+    public static Player Instance { get; private set; }
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
 
     public Queue<GameObject> Ripple = new Queue<GameObject>();
     public Queue<GameObject> Bullet = new Queue<GameObject>();
     public Dictionary<string, bool> Keys = new Dictionary<string, bool>();
+<<<<<<< HEAD
     public Dictionary<string, int> Base_Property = new Dictionary<string, int>();
     public Dictionary<string, int> Property = new Dictionary<string, int>();
 
@@ -30,6 +38,20 @@ public class Player : MonoBehaviour
     public float fight_r = 2f;
     public float Ray_r = 10f;
 
+=======
+
+    public bool isSaMu = false;
+    public bool isFight = false;
+    public int energy = 0;
+    public float L_energy = 0;
+
+    private bool isAttack = false;
+    private bool isAbove = false;
+    private bool isFire = false;
+
+    private float fight_r = 2f;
+    private float Ray_r = 10f;
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     private int bullets = 0;
     private int bulletSize = 20;
     private float time = 0;
@@ -39,6 +61,7 @@ public class Player : MonoBehaviour
     private float x = 0;
     private float y = 0;
 
+<<<<<<< HEAD
     public void Awake()
     {
         transform.position = new Vector2(0, 0);
@@ -65,6 +88,15 @@ public class Player : MonoBehaviour
             Ripple.Enqueue(obj);
         }
     }
+=======
+    public int health;
+    public int attack;
+    public int defense;
+    public int Exp;
+    public int Max_Exp;
+    public int Level;
+
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     public GameObject GetPooledObject(Queue<GameObject> PooledObject)
     {
         if (PooledObject.Count > 0)
@@ -79,6 +111,7 @@ public class Player : MonoBehaviour
         obj.SetActive(false);
         PooledObject.Enqueue(obj);
     }
+<<<<<<< HEAD
     public void Update()
     {
         if (GameManager.Instance.IsPlaying &&
@@ -100,6 +133,151 @@ public class Player : MonoBehaviour
 
             // 应用移动
             transform.Translate(movement * Time.deltaTime * moveSpeed, Space.World);
+=======
+    private void Awake()
+    {
+        transform.position = new Vector2(0, 0);
+        Instance = this;
+        Keys.Add("I", true);
+        Keys.Add("J", true);
+        Keys.Add("L", true);
+        Keys.Add("K", true);
+        transform.Find("Components").transform.position = new Vector2(transform.position.x + fight_r, transform.position.y);
+        for (int i = 0; i < bulletSize; i++)
+        {
+            GameObject obj = Instantiate(transform.Find("Components").Find("Bullet").gameObject);
+            obj.name = $"{i}";
+            obj.SetActive(false);
+            obj.GetComponent<Bullet>().SetSpawner(gameObject); // 挂载下方脚本
+            Bullet.Enqueue(obj);
+        }
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject obj = Instantiate(transform.Find("Components").Find("Ripple").gameObject);
+            obj.name = $"{i}";
+            obj.SetActive(false);
+            obj.GetComponent<Ripple>().SetSpawner(gameObject); // 挂载下方脚本
+            Ripple.Enqueue(obj);
+        }
+    }
+    private void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        // 计算移动方向
+        x = horizontal == 0 ? 0 : Mathf.Abs(horizontal) / horizontal;
+        y = vertical == 0 ? 0 : Mathf.Abs(vertical) / vertical;
+        if (x == 0 || y == 0)
+        {
+            movement = new Vector2(x, y);
+        }
+        else
+        {
+            movement = new Vector2(x, y) / Mathf.Pow(Mathf.Abs(x) + Mathf.Abs(y), 0.5f);
+        }
+
+        // 应用移动
+        transform.Translate(movement * Time.deltaTime * moveSpeed, Space.World);
+        if (isFight)
+        {
+            L_energy -= Time.deltaTime * 1f;
+        }
+        if (Input.GetKeyDown(KeyCode.J) && Keys.GetValueOrDefault("J") && !isAttack)
+        {
+            if (isSaMu)
+            {
+                isAttack = true;
+                Attack("Fist",fight_r);
+                StartCoroutine(SumTime());
+            }
+            else
+            {
+                Keys["J"] = false;
+                StartCoroutine(EnableAfterDelay(0.5f, "J"));
+                Attack("Fight_Square",fight_r);
+                StartCoroutine(AttackSleep());
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.J) && Keys.GetValueOrDefault("J") && isAttack)
+        {
+            Keys["J"] = false;
+            isAttack = false;
+            StartCoroutine(EnableAfterDelay(0.3f, "J"));
+        }
+        else if (Input.GetKeyDown(KeyCode.I) && Keys.GetValueOrDefault("I") && energy == 100)
+        {
+            if (isSaMu)
+            {
+                energy = 0;
+                isAbove = true;
+                foreach (var temp in Keys.Keys.ToList())
+                {
+                    Keys[temp] = false;
+                }
+                transform.Find("Components").Find("Fire_Circle").transform.position = transform.position;
+                transform.Find("Role").Find("samu").GetComponent<SpriteRenderer>().enabled = false;
+                transform.Find("Role").Find("samu").GetComponent<CircleCollider2D>().enabled = false;
+                transform.Find("Components").Find("Fire_Circle").gameObject.SetActive(true);
+            }
+            else
+            {
+                energy = 0;
+                foreach (var temp in Keys.Keys.ToList())
+                {
+                    Keys[temp] = false;
+                }
+                transform.Find("Animitor").transform.Find("Metamorphose").gameObject.transform.position = transform.position;
+                transform.Find("Animitor").transform.Find("Metamorphose").gameObject.SetActive(true);
+                StartCoroutine(beSaMu());
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.I) && isAbove && isSaMu)
+        {
+            transform.Find("Role").Find("samu").GetComponent<SpriteRenderer>().enabled = true;
+            transform.Find("Components").Find("Fire_Circle").gameObject.SetActive(false);
+            transform.Find("Components").Find("Fight_Circle").transform.position = new Vector2(transform.position.x, transform.position.y + 1.98f);
+            transform.Find("Components").Find("Fight_Circle").gameObject.SetActive(true);
+            StartCoroutine(Wait(1f));
+        }
+        else if (Input.GetKeyDown(KeyCode.K) && Keys.GetValueOrDefault("K"))
+        {
+            Keys["K"] = false;
+            StartCoroutine(dodge());
+            StartCoroutine(EnableAfterDelay(0.6f, "K"));
+        }
+        else if (Input.GetKeyDown(KeyCode.L) && Keys.GetValueOrDefault("L"))
+        {
+            if (isSaMu)
+            {
+                if(L_energy > 0)
+                {
+                    isFight = true;
+                    Attack("Ray", Ray_r);
+                }
+
+            }
+            else
+            {
+                isFire = true;
+                StartCoroutine(SpawnRoutine());
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.L) && Keys.GetValueOrDefault("L"))
+        {
+            if (isSaMu)
+            {
+                Keys["L"] = false;
+                isFight = false;
+                StartCoroutine(EnableAfterDelay(1f, "L"));
+            }
+            else
+            {
+                Keys["L"] = false;
+                isFire = false;
+                StartCoroutine(HealRoutine());
+                StartCoroutine(EnableAfterDelay(0.4f, "L"));
+            }
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
         }
     }
     public void Attack(string Gameobject, float r)
@@ -120,7 +298,11 @@ public class Player : MonoBehaviour
         }
         transform.Find("Components").Find(Gameobject).gameObject.SetActive(true);
     }
+<<<<<<< HEAD
     public IEnumerator SumTime()
+=======
+    IEnumerator SumTime()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         while (isSaMu &&
             isAttack)
@@ -144,7 +326,11 @@ public class Player : MonoBehaviour
         transform.Find("Components").Find("Fist").gameObject.SetActive(false);
 
     }
+<<<<<<< HEAD
     public IEnumerator Wait(float time)
+=======
+    IEnumerator Wait(float time)
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         yield return new WaitForSeconds(time);
         transform.Find("Components").Find("Fight_Circle").gameObject.SetActive(false);
@@ -155,7 +341,11 @@ public class Player : MonoBehaviour
         }
         transform.Find("Role").Find("samu").GetComponent<CircleCollider2D>().enabled = true;
     }
+<<<<<<< HEAD
     public IEnumerator dodge()
+=======
+    IEnumerator dodge()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         moveSpeed *= 2f;
         transform.Find("Role").Find("samu").GetComponent<CircleCollider2D>().enabled = false;
@@ -163,12 +353,20 @@ public class Player : MonoBehaviour
         moveSpeed /= 2f;
         transform.Find("Role").Find("samu").GetComponent<CircleCollider2D>().enabled = true;
     }
+<<<<<<< HEAD
     public IEnumerator FistSleep()
+=======
+    IEnumerator FistSleep()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         yield return new WaitForSeconds(0.3f);
         transform.Find("Components").Find("BigFist").gameObject.SetActive(false);
     }
+<<<<<<< HEAD
     public IEnumerator SpawnRipple()
+=======
+    IEnumerator SpawnRipple()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         while (isSaMu &&
             GameManager.Exists &&
@@ -181,7 +379,11 @@ public class Player : MonoBehaviour
             obj.SetActive(true);
         }
     }
+<<<<<<< HEAD
     public IEnumerator CountDown()
+=======
+    IEnumerator CountDown()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         yield return new WaitForSeconds(20f);
         transform.Find("Animitor").Find("Meta2").transform.position = transform.position;
@@ -193,12 +395,20 @@ public class Player : MonoBehaviour
         transform.Find("Animitor").Find("Meta2").gameObject.SetActive(false);
         isSaMu = false;
     }
+<<<<<<< HEAD
     public IEnumerator EnableAfterDelay(float delay, string key)
+=======
+    IEnumerator EnableAfterDelay(float delay, string key)
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         yield return new WaitForSeconds(delay);
         Keys[key] = true;
     }
+<<<<<<< HEAD
     public IEnumerator beSaMu()
+=======
+    IEnumerator beSaMu()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         yield return new WaitForSeconds(0.4f);
         transform.Find("Role").Find("liuying").gameObject.SetActive(false);
@@ -213,12 +423,20 @@ public class Player : MonoBehaviour
         StartCoroutine(CountDown());
         StartCoroutine(SpawnRipple());
     }
+<<<<<<< HEAD
     public IEnumerator AttackSleep()
+=======
+    IEnumerator AttackSleep()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         yield return new WaitForSeconds(0.1f);
         transform.Find("Components").transform.Find("Fight_Square").gameObject.SetActive(false);
     }
+<<<<<<< HEAD
     public IEnumerator SpawnRoutine()
+=======
+    IEnumerator SpawnRoutine()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         while (bullets < bulletSize &&
             isFire &&
@@ -241,7 +459,11 @@ public class Player : MonoBehaviour
         }
 
     }
+<<<<<<< HEAD
     public IEnumerator HealRoutine()
+=======
+    IEnumerator HealRoutine()
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
     {
         while (bullets > 0 &&
             !isFire &&
@@ -252,6 +474,7 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
     }
+<<<<<<< HEAD
     public void InitProperty()
     {
         Base_Property.Add("Base_health", 0);
@@ -309,4 +532,6 @@ public class Player : MonoBehaviour
 
         }
     }
+=======
+>>>>>>> e680e54f127fbcafce6c9017202eedf364e17e21
 }
