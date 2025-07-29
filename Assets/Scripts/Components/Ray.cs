@@ -14,8 +14,7 @@ public class Ray : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.IsPlaying &&
-            GameManager.Exists &&
+        if(GameManager.Exists &&
             Player.Instance.isSaMu && 
             (!Player.Instance.isFight ||
             Player.Instance.transform.Find("Role").Find("samu").GetComponent<samu>().L_energy <= 0) &&

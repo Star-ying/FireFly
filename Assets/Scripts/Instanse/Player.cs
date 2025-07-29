@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public bool isAttack = false;
     public bool isAbove = false;
     public bool isFire = false;
+    public bool isTalk = false;
 
     public int Level;
     public int Max_Exp = 0;
@@ -41,8 +42,8 @@ public class Player : MonoBehaviour
 
     public void Awake()
     {
-        transform.position = new Vector2(0, 0);
         Instance = this;
+        transform.position = new Vector2(0, 0);
         Keys.Add("I", true);
         Keys.Add("J", true);
         Keys.Add("L", true);
@@ -81,7 +82,7 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-        if (GameManager.Instance.IsPlaying &&
+        if (!isTalk &&
             GameManager.Exists)
         {
             float horizontal = Input.GetAxis("Horizontal");
@@ -171,8 +172,7 @@ public class Player : MonoBehaviour
     public IEnumerator SpawnRipple()
     {
         while (isSaMu &&
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
+            GameManager.Exists)
         {
             yield return new WaitForSeconds(0.8f);
             GameObject obj = GetPooledObject(Ripple);
@@ -222,8 +222,7 @@ public class Player : MonoBehaviour
     {
         while (bullets < bulletSize &&
             isFire &&
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
+            GameManager.Exists)
         {
             bullets++;
             GameObject obj = GetPooledObject(Bullet);
@@ -245,8 +244,7 @@ public class Player : MonoBehaviour
     {
         while (bullets > 0 &&
             !isFire &&
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
+            GameManager.Exists)
         {
             bullets--;
             yield return new WaitForSeconds(0.2f);
@@ -295,6 +293,11 @@ public class Player : MonoBehaviour
     public void AddProperty(string property,float rate)
     {
         Property[property] += (int)(Base_Property[$"Base_{property}"] * rate);
+    }
+    public void AddProperty1(string property,int number)
+    {
+        Base_Property[property] += number;
+        Property[property] += number;
     }
     public void SetEquipment(string name, string position)
     {

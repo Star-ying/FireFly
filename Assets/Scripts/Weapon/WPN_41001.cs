@@ -20,6 +20,5 @@ public class WPN_41001 : MonoBehaviour
             health = Player.Instance.Property["health"];
             Player.Instance.Property["attack"] += (int)(Player.Instance.Property["health"] * 0.05);
         }
-        Debug.Log(Player.Instance.Property["attack"]);
     }
 }

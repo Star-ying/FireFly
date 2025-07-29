@@ -7,8 +7,7 @@ public class Ripple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.IsPlaying &&
-            GameManager.Exists &&
+        if(GameManager.Exists &&
             Player.Instance.isSaMu &&
             transform.localScale.x < 2f)
         {

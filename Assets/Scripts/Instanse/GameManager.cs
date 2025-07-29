@@ -13,8 +13,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent GameOver = new();
 
     public GameObject Canvas;
-
-    public bool IsPlaying { get; private set; }
+    public int count = 0;
 
     private void Awake()
     {
@@ -22,8 +21,6 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
-        if (IsPlaying) return;
-        IsPlaying = true;
         GameStart.Invoke();
         Player.Instance.transform.position = new Vector2(0, 0);
         Canvas.transform.Find("UI").Find("HP").GetComponent<Slider>().value = 1f;
@@ -31,8 +28,6 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
-        if (!IsPlaying) return;
-        IsPlaying = false;
         GameOver.Invoke();
     }
 }

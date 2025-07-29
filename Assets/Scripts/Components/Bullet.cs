@@ -26,8 +26,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Enemy") &&
             gameObject.activeSelf &&
             other.gameObject.activeSelf &&
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
+            GameManager.Exists)
         {
             Stop();
         }
@@ -36,7 +35,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Exists && GameManager.Instance.IsPlaying)
+        if(GameManager.Exists)
         {
             transform.Translate(speed * Time.deltaTime * movement);
             if(transform.position.x > destory_max_X || 
