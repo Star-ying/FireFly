@@ -20,10 +20,7 @@ public class Player : MonoBehaviour
     public bool isAttack = false;
     public bool isAbove = false;
     public bool isFire = false;
-<<<<<<< HEAD:Assets/Scripts/Instanse/Player.cs
     public bool isTalk = false;
-=======
->>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/Player.cs
 
     public int Level;
     public int Max_Exp = 0;
@@ -45,13 +42,8 @@ public class Player : MonoBehaviour
 
     public void Awake()
     {
-<<<<<<< HEAD:Assets/Scripts/Instanse/Player.cs
         Instance = this;
         transform.position = new Vector2(0, 0);
-=======
-        transform.position = new Vector2(0, 0);
-        Instance = this;
->>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/Player.cs
         Keys.Add("I", true);
         Keys.Add("J", true);
         Keys.Add("L", true);
@@ -90,11 +82,7 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-<<<<<<< HEAD:Assets/Scripts/Instanse/Player.cs
         if (!isTalk &&
-=======
-        if (GameManager.Instance.IsPlaying &&
->>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/Player.cs
             GameManager.Exists)
         {
             float horizontal = Input.GetAxis("Horizontal");
@@ -184,12 +172,7 @@ public class Player : MonoBehaviour
     public IEnumerator SpawnRipple()
     {
         while (isSaMu &&
-<<<<<<< HEAD:Assets/Scripts/Instanse/Player.cs
             GameManager.Exists)
-=======
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
->>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/Player.cs
         {
             yield return new WaitForSeconds(0.8f);
             GameObject obj = GetPooledObject(Ripple);
@@ -239,12 +222,7 @@ public class Player : MonoBehaviour
     {
         while (bullets < bulletSize &&
             isFire &&
-<<<<<<< HEAD:Assets/Scripts/Instanse/Player.cs
             GameManager.Exists)
-=======
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
->>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/Player.cs
         {
             bullets++;
             GameObject obj = GetPooledObject(Bullet);
@@ -266,12 +244,7 @@ public class Player : MonoBehaviour
     {
         while (bullets > 0 &&
             !isFire &&
-<<<<<<< HEAD:Assets/Scripts/Instanse/Player.cs
             GameManager.Exists)
-=======
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
->>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/Player.cs
         {
             bullets--;
             yield return new WaitForSeconds(0.2f);
@@ -321,14 +294,11 @@ public class Player : MonoBehaviour
     {
         Property[property] += (int)(Base_Property[$"Base_{property}"] * rate);
     }
-<<<<<<< HEAD:Assets/Scripts/Instanse/Player.cs
     public void AddProperty1(string property,int number)
     {
         Base_Property[property] += number;
         Property[property] += number;
     }
-=======
->>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/Player.cs
     public void SetEquipment(string name, string position)
     {
         Sprite sprite = Resources.Load<Sprite>(name);
