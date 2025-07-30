@@ -13,7 +13,12 @@ public class GameManager : MonoBehaviour
     public UnityEvent GameOver = new();
 
     public GameObject Canvas;
+<<<<<<< HEAD:Assets/Scripts/Instanse/GameManager.cs
     public int count = 0;
+=======
+
+    public bool IsPlaying { get; private set; }
+>>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/GameManager.cs
 
     private void Awake()
     {
@@ -21,6 +26,11 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+<<<<<<< HEAD:Assets/Scripts/Instanse/GameManager.cs
+=======
+        if (IsPlaying) return;
+        IsPlaying = true;
+>>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/GameManager.cs
         GameStart.Invoke();
         Player.Instance.transform.position = new Vector2(0, 0);
         Canvas.transform.Find("UI").Find("HP").GetComponent<Slider>().value = 1f;
@@ -28,6 +38,11 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
+<<<<<<< HEAD:Assets/Scripts/Instanse/GameManager.cs
+=======
+        if (!IsPlaying) return;
+        IsPlaying = false;
+>>>>>>> 814045f06f204a8d8a3bf9fa46775648899fd227:Assets/BasicScript/GameManager.cs
         GameOver.Invoke();
     }
 }
