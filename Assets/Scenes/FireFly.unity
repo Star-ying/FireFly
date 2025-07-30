@@ -597,7 +597,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 140517717}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &152178696
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +645,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152178696}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1001 &183937035
 PrefabInstance:
@@ -876,7 +882,10 @@ RectTransform:
   m_SizeDelta: {x: 711.88, y: 198.8}
   m_Pivot: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &228069566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1256,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254180124}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &308285401
 GameObject:
@@ -1283,6 +1295,10 @@ RectTransform:
   - {fileID: 753954509}
   - {fileID: 196957042}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  - {fileID: 467500544}
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 =======
   - {fileID: 467500544}
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
@@ -1294,7 +1310,10 @@ RectTransform:
   m_SizeDelta: {x: -2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &311505772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1389,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311505772}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &344471802
 GameObject:
@@ -1664,7 +1686,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 402612284}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &458815896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,6 +1821,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467500543}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1001 &470642234
 PrefabInstance:
@@ -2203,7 +2231,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 308285402}
+=======
+  - {fileID: 836167133}
+  - {fileID: 308285402}
+  - {fileID: 2070178024}
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 =======
   - {fileID: 836167133}
   - {fileID: 308285402}
@@ -2616,7 +2650,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 565628101}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &570482340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,6 +2733,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570482340}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &570572767
 GameObject:
@@ -2716,7 +2756,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IsActive: 1
+=======
+  m_IsActive: 0
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 =======
   m_IsActive: 0
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
@@ -3551,7 +3595,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 642664548}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &651882959
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,6 +3843,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733420538}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &751831547
 GameObject:
@@ -3958,7 +4008,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 753954508}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &769461157
 GameObject:
   m_ObjectHideFlags: 0
@@ -4348,6 +4401,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807825543}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &810294340
 GameObject:
@@ -4504,7 +4560,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 814103331}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &836167132
 GameObject:
   m_ObjectHideFlags: 0
@@ -4621,6 +4680,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839120940}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &856165751
 GameObject:
@@ -4698,7 +4760,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 856165751}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &893179124
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,6 +4840,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893179124}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &906997867
 GameObject:
@@ -5208,7 +5276,10 @@ RectTransform:
   m_PrefabInstance: {fileID: 951749570}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1003835513
 GameObject:
   m_ObjectHideFlags: 0
@@ -5342,6 +5413,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003835513}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1001 &1015130992
 PrefabInstance:
@@ -5392,16 +5466,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
     - target: {fileID: 1296546267020961563, guid: 655dadc3d8027144da085384fbbcd624, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
     - target: {fileID: 1455500170520875412, guid: 655dadc3d8027144da085384fbbcd624, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
     - target: {fileID: 2103366816654670836, guid: 655dadc3d8027144da085384fbbcd624, type: 3}
       propertyPath: m_IsActive
@@ -5409,6 +5490,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5603409307767605639, guid: 655dadc3d8027144da085384fbbcd624, type: 3}
       propertyPath: m_IsActive
+=======
+    - target: {fileID: 7646820698620946209, guid: 655dadc3d8027144da085384fbbcd624, type: 3}
+      propertyPath: m_LocalPosition.z
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 =======
     - target: {fileID: 7646820698620946209, guid: 655dadc3d8027144da085384fbbcd624, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5659,7 +5744,10 @@ GameObject:
   m_PrefabInstance: {fileID: 1015130992}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1067097971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5735,6 +5823,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067097971}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1001 &1077060657
 PrefabInstance:
@@ -5855,7 +5946,10 @@ RectTransform:
   m_PrefabInstance: {fileID: 1077060657}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1090759621
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,6 +5994,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090759621}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1091233836
 GameObject:
@@ -5981,7 +6078,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1091233836}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1103886214
 GameObject:
   m_ObjectHideFlags: 0
@@ -6182,6 +6282,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125839194}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1126924047
 GameObject:
@@ -6425,7 +6528,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1126924047}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1147622478
 GameObject:
   m_ObjectHideFlags: 0
@@ -6549,6 +6655,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153627598}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1160643279
 GameObject:
@@ -6847,7 +6956,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1170747780}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1184855048
 GameObject:
   m_ObjectHideFlags: 0
@@ -6993,6 +7105,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184855048}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1193126034
 GameObject:
@@ -7031,7 +7146,10 @@ RectTransform:
   m_SizeDelta: {x: 0.000061035, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1210723786
 GameObject:
   m_ObjectHideFlags: 0
@@ -7177,6 +7295,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210723786}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1214884180
 GameObject:
@@ -7393,6 +7514,10 @@ MonoBehaviour:
         m_CallState: 2
   Canvas: {fileID: 517071205}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  count: 0
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 =======
   count: 0
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
@@ -7405,8 +7530,13 @@ Transform:
   m_GameObject: {fileID: 1238986219}
   serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.4603314, y: 4.886558, z: -0.17632392}
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.4603314, y: 4.886558, z: -0.17632389}
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 =======
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.4603314, y: 4.886558, z: -0.17632389}
@@ -7417,7 +7547,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1272571692
 GameObject:
   m_ObjectHideFlags: 0
@@ -7493,6 +7626,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272571692}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1276403107
 GameObject:
@@ -8318,7 +8454,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1333063130}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1356317605
 GameObject:
   m_ObjectHideFlags: 0
@@ -8394,6 +8533,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356317605}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1368547471
 GameObject:
@@ -8475,7 +8617,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1368547471}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1400785257
 GameObject:
   m_ObjectHideFlags: 0
@@ -8583,6 +8728,9 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1440094284
 GameObject:
@@ -8922,7 +9070,10 @@ RectTransform:
   m_SizeDelta: {x: 1593.8853, y: 705.78}
   m_Pivot: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1465425922
 GameObject:
   m_ObjectHideFlags: 0
@@ -9002,6 +9153,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465425922}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1477646922
 GameObject:
@@ -9435,7 +9589,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1543126257}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1545874594
 GameObject:
   m_ObjectHideFlags: 0
@@ -9468,6 +9625,9 @@ Transform:
   - {fileID: 229434236}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1581620047
 GameObject:
@@ -10292,7 +10452,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1715964836
 GameObject:
   m_ObjectHideFlags: 0
@@ -10372,6 +10535,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715964836}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1738989891
 GameObject:
@@ -10595,7 +10761,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1756188227
 GameObject:
   m_ObjectHideFlags: 0
@@ -10675,6 +10844,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756188227}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1001 &1775369564
 PrefabInstance:
@@ -10795,7 +10967,10 @@ RectTransform:
   m_PrefabInstance: {fileID: 1775369564}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1819197611
 GameObject:
   m_ObjectHideFlags: 0
@@ -10840,6 +11015,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819197611}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1826658981
 GameObject:
@@ -11382,7 +11560,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 1946279159}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1969556575
 GameObject:
   m_ObjectHideFlags: 0
@@ -11427,6 +11608,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969556575}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &1978646015
 GameObject:
@@ -11883,7 +12067,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 2068188291}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &2070178023
 GameObject:
   m_ObjectHideFlags: 0
@@ -11921,6 +12108,9 @@ RectTransform:
   m_AnchoredPosition: {x: -0.99998, y: -0.000027657}
   m_SizeDelta: {x: 1306.1133, y: 682.1277}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &2084531068
 GameObject:
@@ -12002,7 +12192,10 @@ CanvasRenderer:
   m_GameObject: {fileID: 2084531068}
   m_CullTransparentMesh: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &2099043607
 GameObject:
   m_ObjectHideFlags: 0
@@ -12049,6 +12242,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas3: {fileID: 517071208}
   page: 0
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &2141386196
 GameObject:
@@ -12476,9 +12672,12 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 1238986221}
   - {fileID: 93212675}
   - {fileID: 1015130992}
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 =======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
   - {fileID: 1601350770}
@@ -12486,10 +12685,13 @@ SceneRoots:
   - {fileID: 131959770}
   - {fileID: 517071209}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 619394802}
   - {fileID: 570572771}
   - {fileID: 1705692271}
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
   - {fileID: 1400785261}
   - {fileID: 619394802}
   - {fileID: 570572771}
@@ -12499,5 +12701,8 @@ SceneRoots:
   - {fileID: 1238986221}
   - {fileID: 93212675}
   - {fileID: 2099043609}
+<<<<<<< HEAD
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
+=======
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
   - {fileID: 1595076278}

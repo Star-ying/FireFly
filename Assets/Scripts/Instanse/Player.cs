@@ -20,10 +20,14 @@ public class Player : MonoBehaviour
     public bool isAttack = false;
     public bool isAbove = false;
     public bool isFire = false;
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/BasicScript/Player.cs
 =======
     public bool isTalk = false;
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
+=======
+    public bool isTalk = false;
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 
     public int Level;
     public int Max_Exp = 0;
@@ -45,6 +49,7 @@ public class Player : MonoBehaviour
 
     public void Awake()
     {
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/BasicScript/Player.cs
         transform.position = new Vector2(0, 0);
         Instance = this;
@@ -52,6 +57,10 @@ public class Player : MonoBehaviour
         Instance = this;
         transform.position = new Vector2(0, 0);
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
+=======
+        Instance = this;
+        transform.position = new Vector2(0, 0);
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
         Keys.Add("I", true);
         Keys.Add("J", true);
         Keys.Add("L", true);
@@ -90,11 +99,15 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/BasicScript/Player.cs
         if (GameManager.Instance.IsPlaying &&
 =======
         if (!isTalk &&
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
+=======
+        if (!isTalk &&
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
             GameManager.Exists)
         {
             float horizontal = Input.GetAxis("Horizontal");
@@ -184,12 +197,16 @@ public class Player : MonoBehaviour
     public IEnumerator SpawnRipple()
     {
         while (isSaMu &&
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/BasicScript/Player.cs
             GameManager.Exists &&
             GameManager.Instance.IsPlaying)
 =======
             GameManager.Exists)
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
+=======
+            GameManager.Exists)
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
         {
             yield return new WaitForSeconds(0.8f);
             GameObject obj = GetPooledObject(Ripple);
@@ -239,12 +256,16 @@ public class Player : MonoBehaviour
     {
         while (bullets < bulletSize &&
             isFire &&
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/BasicScript/Player.cs
             GameManager.Exists &&
             GameManager.Instance.IsPlaying)
 =======
             GameManager.Exists)
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
+=======
+            GameManager.Exists)
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
         {
             bullets++;
             GameObject obj = GetPooledObject(Bullet);
@@ -266,12 +287,16 @@ public class Player : MonoBehaviour
     {
         while (bullets > 0 &&
             !isFire &&
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/BasicScript/Player.cs
             GameManager.Exists &&
             GameManager.Instance.IsPlaying)
 =======
             GameManager.Exists)
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
+=======
+            GameManager.Exists)
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
         {
             bullets--;
             yield return new WaitForSeconds(0.2f);
@@ -321,14 +346,20 @@ public class Player : MonoBehaviour
     {
         Property[property] += (int)(Base_Property[$"Base_{property}"] * rate);
     }
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/BasicScript/Player.cs
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
     public void AddProperty1(string property,int number)
     {
         Base_Property[property] += number;
         Property[property] += number;
     }
+<<<<<<< HEAD
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
     public void SetEquipment(string name, string position)
     {
         Sprite sprite = Resources.Load<Sprite>(name);

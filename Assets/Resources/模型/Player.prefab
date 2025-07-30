@@ -15,11 +15,15 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/模型/Player.prefab
   m_IsActive: 0
 =======
   m_IsActive: 1
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Resources/模型/Player.prefab
+=======
+  m_IsActive: 1
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!4 &2237370682940069791
 Transform:
   m_ObjectHideFlags: 0
@@ -29,11 +33,15 @@ Transform:
   m_GameObject: {fileID: 422576046241283462}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/模型/Player.prefab
   m_LocalPosition: {x: 0, y: 0, z: -1}
 =======
   m_LocalPosition: {x: 0, y: 0, z: 0}
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Resources/模型/Player.prefab
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -179,6 +187,7 @@ MonoBehaviour:
   isAttack: 0
   isAbove: 0
   isFire: 0
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/模型/Player.prefab
   Level: 0
   Max_Exp: 0
@@ -190,6 +199,11 @@ MonoBehaviour:
   Level: 0
   Max_Exp: 0
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Resources/模型/Player.prefab
+=======
+  isTalk: 0
+  Level: 0
+  Max_Exp: 0
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
   margic: 0
   Exp: 0
   fight_r: 2
@@ -203,10 +217,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 756720039628498770}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/模型/Player.prefab
 =======
   - component: {fileID: 376220322404648896}
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Resources/模型/Player.prefab
+=======
+  - component: {fileID: 376220322404648896}
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
   m_Layer: 0
   m_Name: WPN_42001
   m_TagString: Untagged
@@ -229,8 +247,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1917924454531512886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/模型/Player.prefab
 =======
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!114 &376220322404648896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2387540efe3eae47b2ed8c03d44fded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Resources/模型/Player.prefab
+=======
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!1 &2103366816654670836
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,11 +884,15 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/模型/Player.prefab
   m_IsActive: 1
 =======
   m_IsActive: 0
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Resources/模型/Player.prefab
+=======
+  m_IsActive: 0
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
 --- !u!4 &1917924454531512886
 Transform:
   m_ObjectHideFlags: 0
@@ -2000,11 +2028,15 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/模型/Player.prefab
   m_LocalScale: {x: 0.6605, y: 0.6605, z: 0.6605}
 =======
   m_LocalScale: {x: 0.6605, y: 0.6605, z: 0}
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Resources/模型/Player.prefab
+=======
+  m_LocalScale: {x: 0.6605, y: 0.6605, z: 0}
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2237370682940069791}
@@ -2090,11 +2122,15 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/模型/Player.prefab
   m_IsTrigger: 0
 =======
   m_IsTrigger: 1
 >>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Resources/模型/Player.prefab
+=======
+  m_IsTrigger: 1
+>>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.09212494, y: 0.64489174}
