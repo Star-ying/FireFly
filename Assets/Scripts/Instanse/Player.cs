@@ -9,65 +9,43 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get;private set; }
 
-    public Queue<GameObject> Ripple = new Queue<GameObject>();
-    public Queue<GameObject> Bullet = new Queue<GameObject>();
-    public Dictionary<string, bool> Keys = new Dictionary<string, bool>();
-    public Dictionary<string, int> Base_Property = new Dictionary<string, int>();
-    public Dictionary<string, int> Property = new Dictionary<string, int>();
+    public Queue<GameObject> Ripple = new();
+    public Queue<GameObject> Bullet = new();
+    public Dictionary<string, bool> Keys = new();
+    public Dictionary<string, int> Base_Property = new();
+    public Dictionary<string, int> Property = new();
 
     public bool isSaMu = false;
     public bool isFight = false;
     public bool isAttack = false;
     public bool isAbove = false;
     public bool isFire = false;
-<<<<<<< HEAD
-<<<<<<< HEAD:Assets/BasicScript/Player.cs
-=======
     public bool isTalk = false;
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
-=======
-    public bool isTalk = false;
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
-
-    public int Level;
-    public int Max_Exp = 0;
-
-    public int margic = 0;
-    public int Exp;
 
     public float fight_r = 2f;
     public float Ray_r = 10f;
 
+    public int Level = 1;
+    public int Max_Exp = 100;
+
     private int bullets = 0;
-    private int bulletSize = 20;
     private float time = 0;
 
-    private float moveSpeed = 15f;
     private Vector2 movement;
     private float x = 0;
     private float y = 0;
 
     public void Awake()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD:Assets/BasicScript/Player.cs
-        transform.position = new Vector2(0, 0);
         Instance = this;
-=======
-        Instance = this;
+        InitProperty();
         transform.position = new Vector2(0, 0);
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
-=======
-        Instance = this;
-        transform.position = new Vector2(0, 0);
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
         Keys.Add("I", true);
         Keys.Add("J", true);
         Keys.Add("L", true);
         Keys.Add("K", true);
-        InitProperty();
         transform.Find("Components").transform.position = new Vector2(transform.position.x + fight_r, transform.position.y);
-        for (int i = 0; i < bulletSize; i++)
+        for (int i = 0; i < Property["bullet_size"]; i++)
         {
             GameObject obj = Instantiate(transform.Find("Components").Find("Bullet").gameObject);
             obj.name = $"{i}";
@@ -99,15 +77,7 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD:Assets/BasicScript/Player.cs
-        if (GameManager.Instance.IsPlaying &&
-=======
         if (!isTalk &&
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
-=======
-        if (!isTalk &&
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
             GameManager.Exists)
         {
             float horizontal = Input.GetAxis("Horizontal");
@@ -125,7 +95,7 @@ public class Player : MonoBehaviour
             }
 
             // ”¶”√“∆∂Ø
-            transform.Translate(movement * Time.deltaTime * moveSpeed, Space.World);
+            transform.Translate(movement * Time.deltaTime * Property["move_Speed"], Space.World);
         }
     }
     public void Attack(string Gameobject, float r)
@@ -183,10 +153,10 @@ public class Player : MonoBehaviour
     }
     public IEnumerator dodge()
     {
-        moveSpeed *= 2f;
+        Property["move_Speed"] *= 2;
         transform.Find("Role").Find("samu").GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(0.2f);
-        moveSpeed /= 2f;
+        Property["move_Speed"] /= 2;
         transform.Find("Role").Find("samu").GetComponent<CircleCollider2D>().enabled = true;
     }
     public IEnumerator FistSleep()
@@ -197,16 +167,7 @@ public class Player : MonoBehaviour
     public IEnumerator SpawnRipple()
     {
         while (isSaMu &&
-<<<<<<< HEAD
-<<<<<<< HEAD:Assets/BasicScript/Player.cs
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
-=======
             GameManager.Exists)
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
-=======
-            GameManager.Exists)
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
         {
             yield return new WaitForSeconds(0.8f);
             GameObject obj = GetPooledObject(Ripple);
@@ -254,18 +215,9 @@ public class Player : MonoBehaviour
     }
     public IEnumerator SpawnRoutine()
     {
-        while (bullets < bulletSize &&
+        while (bullets < Property["bullet_size"] &&
             isFire &&
-<<<<<<< HEAD
-<<<<<<< HEAD:Assets/BasicScript/Player.cs
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
-=======
             GameManager.Exists)
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
-=======
-            GameManager.Exists)
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
         {
             bullets++;
             GameObject obj = GetPooledObject(Bullet);
@@ -287,16 +239,7 @@ public class Player : MonoBehaviour
     {
         while (bullets > 0 &&
             !isFire &&
-<<<<<<< HEAD
-<<<<<<< HEAD:Assets/BasicScript/Player.cs
-            GameManager.Exists &&
-            GameManager.Instance.IsPlaying)
-=======
             GameManager.Exists)
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
-=======
-            GameManager.Exists)
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
         {
             bullets--;
             yield return new WaitForSeconds(0.2f);
@@ -312,13 +255,16 @@ public class Player : MonoBehaviour
         Base_Property.Add("CriticalHit", 0);
         Base_Property.Add("CriticalInjury", 0);
         Property.Add("health", 0);
-        Property.Add("margic", 0);
         Property.Add("attack", 0);
         Property.Add("defense", 0);
+        Property.Add("margic", 0);
+        Property.Add("Exp", 0);
+        Property.Add("bullet_size",20);
+        Property.Add("move_Speed", 15);
         Property.Add("AttachedHit", 0);
         Property.Add("CriticalHit", 0);
         Property.Add("CriticalInjury", 0);
-    }
+}
     public void SetProperty(int HP,int MP,int ATK,int DFS)
     {
         Base_Property["Base_health"] = HP;
@@ -340,26 +286,17 @@ public class Player : MonoBehaviour
         Property["health"] += HP;
         Property["attack"] += ATK;
         Property["defense"] += DFS;
-        margic += MP;
+        Property["margic"] += MP;
     }
     public void AddProperty(string property,float rate)
     {
         Property[property] += (int)(Base_Property[$"Base_{property}"] * rate);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD:Assets/BasicScript/Player.cs
-=======
-=======
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
     public void AddProperty1(string property,int number)
     {
         Base_Property[property] += number;
         Property[property] += number;
     }
-<<<<<<< HEAD
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822:Assets/Scripts/Instanse/Player.cs
-=======
->>>>>>> b90eece9edc6d97b2467b25b1eedad96b3fdc822
     public void SetEquipment(string name, string position)
     {
         Sprite sprite = Resources.Load<Sprite>(name);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +26,7 @@ public class QuestManager : MonoBehaviour
     public Canvas canvas3;
     public static QuestManager Instance;
     public Dictionary<string,QuestData_SO> activeQuests = new(); // 当前激活的任务
-    public int page = 0;
+    private int page = 0;
 
     private void Awake()
     {
@@ -54,19 +55,28 @@ public class QuestManager : MonoBehaviour
     public void ShowTask()
     {
         int i = 0;
+        for(int j = 0;j < 8; j++)
+        {
+            try
+            {
+                Destroy(canvas3.transform.Find("UI").Find("Task").Find("query"));
+            }
+            catch (Exception) { }
+        }
         canvas3.transform.Find("UI").Find("Task").Find("Page").GetComponent<InputField>().text = $"{page + 1}";
         canvas3.transform.Find("UI").Find("Task").Find("Last").gameObject.SetActive(!(page == 0));
         canvas3.transform.Find("UI").Find("Task").Find("Next").gameObject.SetActive(page * 8 < activeQuests.Count - 8);
         foreach(var quest in activeQuests.Values)
         {
-            if(i + 8 * page < activeQuests.Count)
+            if(i < activeQuests.Count && i >= 8 * page && i < 8 * page + 8)
             {
-                GameObject task = (GameObject)Instantiate(Resources.Load("模型/task"), canvas3.transform.Find("UI").Find("Task"));
+                GameObject task = (GameObject)Instantiate(Resources.Load("模型/query"), canvas3.transform.Find("UI").Find("Task"));
                 task.transform.Find("name").GetComponent<Text>().text = quest.questName;
                 task.transform.GetComponent<Slider>().value = quest.condition.currentAmount / quest.condition.requiredAmount;
                 task.transform.Find("Completeness").GetComponent<Text>().text = $"{quest.condition.currentAmount}/{quest.condition.requiredAmount}";
                 task.transform.position = canvas3.transform.Find("UI").Find("Task").Find($"task{i - page * 8 + 1}").transform.position;
             }
+            i++;
         }
     }
     public void NextPage()

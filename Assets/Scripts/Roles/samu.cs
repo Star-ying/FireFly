@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -57,9 +56,9 @@ public class samu : MonoBehaviour
                 Player.Instance.isFight = false;
                 StartCoroutine(Player.Instance.EnableAfterDelay(1f, "L"));
             }
-            else if (Input.GetKeyDown(KeyCode.I) && Player.Instance.Keys.GetValueOrDefault("I") && Player.Instance.margic >= 100)
+            else if (Input.GetKeyDown(KeyCode.I) && Player.Instance.Keys.GetValueOrDefault("I") && Player.Instance.Property["margic"] >= 100)
             {
-                Player.Instance.margic -= 100;
+                Player.Instance.Property["margic"] -= 100;
                 Player.Instance.isAbove = true;
                 foreach (var temp in Player.Instance.Keys.Keys.ToList())
                 {

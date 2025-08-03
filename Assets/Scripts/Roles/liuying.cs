@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -29,9 +28,9 @@ public class liuying : MonoBehaviour
                 Player.Instance.isAttack = false;
                 StartCoroutine(Player.Instance.EnableAfterDelay(0.3f, "J"));
             }
-            else if (Input.GetKeyDown(KeyCode.I) && Player.Instance.Keys.GetValueOrDefault("I") && Player.Instance.margic >= 100)
+            else if (Input.GetKeyDown(KeyCode.I) && Player.Instance.Keys.GetValueOrDefault("I") && Player.Instance.Property["margic"] >= 100)
             {
-                Player.Instance.margic -= 100;
+                Player.Instance.Property["margic"] -= 100;
                 foreach (var temp in Player.Instance.Keys.Keys.ToList())
                 {
                     Player.Instance.Keys[temp] = false;

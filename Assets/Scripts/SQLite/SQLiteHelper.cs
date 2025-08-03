@@ -179,7 +179,7 @@ public class SQLiteHelper
         {
             str.Add($"{colNames[i]} = {colValues[i]}");
         }
-        string queryString = $"UPDATE {tableName} " + $"SET {string.Join(" ", str)}" + $"{key} {operation} {value}";
+        string queryString = $"UPDATE {tableName} " + $"SET {string.Join(", ", str)} " + $"WHERE {key} {operation} {value}";
 
         return ExecuteQuery(queryString);
     }

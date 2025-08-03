@@ -23,8 +23,22 @@ public class InformManager : MonoBehaviour
     public bool isLogin = true;
     private string Name;
     private string P_Name;
-    private int id;
+    private long id;
 
+    private void Awake()
+    {
+        Instance = this;
+        sql = new SQLiteHelper("data source=" + Application.dataPath + "/StreamingAssets/SQLite.db");
+    }
+    private void OnApplicationQuit()
+    {
+        ProgressManager.Instanse.ResyscleProgress();
+        UpdateBag();
+        UpdateEquipment();
+        UpdatePlayer();
+        UpdateTalk();
+        sql.CloseConnection();
+    }
     public void Turn()
     {
         if (!isLogin)
@@ -33,60 +47,6 @@ public class InformManager : MonoBehaviour
             return;
         }
         isLogin = false;
-    }
-    private void Awake()
-    {
-        Instance = this;
-        sql = new SQLiteHelper("data source=" + Application.dataPath + "/StreamingAssets/SQLite.db");
-    }
-    public void AddArchive()
-    {
-        Canvas2.transform.Find("Button1").gameObject.SetActive(false);
-        Canvas2.transform.Find("Button2").gameObject.SetActive(false);
-        ButtonEvent.Archive += ArchiveEvent;
-    }
-    public void DeleteArchive()
-    {
-        // 取消订阅防止内存泄漏
-        ButtonEvent.Archive -= ArchiveEvent;
-    }
-    private void ArchiveEvent(Button clickedButton)
-    {
-        // 事件处理方法
-        if (!clickedButton.transform.Find("Image").gameObject.activeSelf)
-        {
-            Role_Select.SetActive(true);
-        }
-        else
-        {
-            Transform archive = clickedButton.transform;
-            id = Convert.ToInt32(archive.Find("ID").GetComponent<Text>().text);
-            Name = archive.Find("Image").GetComponent<Image>().sprite.name;
-            Player.Instance.Exp = Convert.ToInt32(archive.Find("Exp").GetComponent<Text>().text.Split("Exp:")[1]);
-            Player.Instance.Level = Convert.ToInt32(archive.Find("Level").GetComponent<Text>().text.Split("Level:")[1]);
-            Player.Instance.transform.Find("Role").Find($"{Name}").gameObject.SetActive(true);
-            Canvas2.transform.Find("Button1").gameObject.SetActive(true);
-            Canvas2.transform.Find("Button2").gameObject.SetActive(true);
-        }
-    }
-    public void AddRole()
-    {
-        Canvas2.transform.Find("Button3").gameObject.SetActive(false);
-        Canvas2.transform.Find("Button4").gameObject.SetActive(false);
-        // 订阅按钮点击事件
-        ButtonEvent.Role += RoleEvent;
-    }
-    public void DeleteRole()
-    {
-        // 取消订阅防止内存泄漏
-        ButtonEvent.Role -= RoleEvent;
-    }
-    private void RoleEvent(Button clickedButton)
-    {
-        Name = clickedButton.name;
-        Player.Instance.transform.Find("Role").Find($"{Name}").gameObject.SetActive(true);
-        Canvas2.transform.Find("Button3").gameObject.SetActive(true);
-        Canvas2.transform.Find("Button4").gameObject.SetActive(true);
     }
     public void Send()
     {
@@ -176,14 +136,13 @@ public class InformManager : MonoBehaviour
     }
     public void InsertRole()
     {
-        long id = sql.Count("Archive") + 1;
+        id = sql.Count("Archive") + 1;
         sql.InsertValues("Archive", new Dictionary<string, object> { ["ID"] = id, ["Name"] = Name, ["P_Name"] = P_Name });
-        Player.Instance.Exp = 0;
+        sql.CreateTable($"Bag{id}", new string[] { "Name", "Class"}, new string[] { "STRING", "STRING"});
+        sql.CreateTable($"Talk{id}", new string[] { "NPC", "Progress" }, new string[] { "STRING", "INTEGER" });
+        ProgressManager.Instanse.SetProgress(new int[] { });
+        sql.InsertValues("Equipment", new Dictionary<string, object> {["A_ID"] = id});
         Player.Instance.Level = 1;
-    }
-    private void OnApplicationQuit()
-    {
-        sql.CloseConnection();
     }
     public void GetEquipments()
     {
@@ -195,5 +154,129 @@ public class InformManager : MonoBehaviour
             reader1.Read();
             Player.Instance.SetEquipment($"{reader.GetValue(i)}", $"{ reader1.GetValue(1)}");
         }
+    }
+    public void GetBag()
+    {
+        reader = sql.ReadFullTable($"Bag{id}");
+        while (reader.Read())
+        {
+            BagManager.Instanse.AddTool(reader.GetValue(1).ToString(), reader.GetValue(0).ToString());
+        }
+    }
+    public void GetTalk()
+    {
+        reader = sql.ReadFullTable($"Talk{id}");
+        List<int> progress = new();
+        while (reader.Read())
+        {
+            progress.Add(Convert.ToInt32(reader.GetValue(1)));
+        }
+        ProgressManager.Instanse.SetProgress(progress.ToArray());
+    }
+    public void UpdateBag()
+    {
+        sql.ExecuteQuery($"Delete From Bag{id}");
+        foreach (var e in BagManager.Instanse.tool)
+        {
+            foreach (var i in e.Value)
+            {
+                sql.InsertValues($"Bag{id}", new Dictionary<string, object> { ["Name"] = i, ["Class"] = e.Key });
+            }
+        }
+    }
+    public void UpdateEquipment()
+    {
+        List<string> equipment = new();
+        List<string> name = new();
+        Transform equip = Player.Instance.transform.Find("Equipment");
+        for (int i = 0;i < equip.childCount;i++)
+        {
+            if (equip.GetChild(i).gameObject.activeSelf)
+            {
+                if (equip.name.Contains("41"))
+                {
+                    equipment.Insert(0, equip.name);
+                    name.Insert(0, equip.name);
+                }
+                else if (equip.name.Contains("42"))
+                {
+                    equipment.Insert(1, equip.name);
+                    name.Insert(1, equip.name);
+                }
+                else
+                {
+                    equipment.Insert(2, equip.name);
+                    name.Insert(2, equip.name);
+                }
+            }
+        }
+        if(equipment.Count != 0)
+        {
+            sql.UpdateValues("Equipment", name.ToArray(), equipment.ToArray(), "A_ID", "=", $"{id}");
+        }
+    }
+    public void UpdatePlayer()
+    {
+        sql.UpdateValues("Archive", new string[] { "Exp", "Level" }, new string[] { $"{Player.Instance.Property["Exp"]}", $"{Player.Instance.Level}" }, "ID","=",$"{id}");
+    }
+    public void UpdateTalk()
+    {
+        sql.ExecuteQuery($"Delete From Talk{id}");
+        foreach(var e in ProgressManager.Instanse.Progress)
+        {
+            sql.InsertValues($"Talk{id}", new Dictionary<string, object> { ["NPC"] = e.Key, ["Progress"] = e.Value });
+        }
+    }
+    public void AddArchive()
+    {
+        Canvas2.transform.Find("Button1").gameObject.SetActive(false);
+        Canvas2.transform.Find("Button2").gameObject.SetActive(false);
+        ButtonEvent.Archive += ArchiveEvent;
+    }
+    public void DeleteArchive()
+    {
+        // 取消订阅防止内存泄漏
+        ButtonEvent.Archive -= ArchiveEvent;
+    }
+    private void ArchiveEvent(Button clickedButton)
+    {
+        // 事件处理方法
+        if (!clickedButton.transform.Find("Image").gameObject.activeSelf)
+        {
+            Role_Select.SetActive(true);
+        }
+        else
+        {
+            Transform archive = clickedButton.transform;
+            id = Convert.ToInt64(archive.Find("ID").GetComponent<Text>().text);
+            Name = archive.Find("Image").GetComponent<Image>().sprite.name;
+            Player.Instance.Property["Exp"] = Convert.ToInt32(archive.Find("Exp").GetComponent<Text>().text.Split("Exp:")[1]);
+            Player.Instance.Level = Convert.ToInt32(archive.Find("Level").GetComponent<Text>().text.Split("Level:")[1]);
+            Player.Instance.transform.Find("Role").Find($"{Name}").gameObject.SetActive(true);
+            GetBag();
+            GetEquipments();
+            GetTalk();
+            Canvas2.transform.Find("Button1").gameObject.SetActive(true);
+            Canvas2.transform.Find("Button2").gameObject.SetActive(true);
+        }
+    }
+    public void AddRole()
+    {
+        Canvas2.transform.Find("Button3").gameObject.SetActive(false);
+        Canvas2.transform.Find("Button4").gameObject.SetActive(false);
+        // 订阅按钮点击事件
+        ButtonEvent.Role += RoleEvent;
+    }
+    public void DeleteRole()
+    {
+        // 取消订阅防止内存泄漏
+        ButtonEvent.Role -= RoleEvent;
+    }
+    private void RoleEvent(Button clickedButton)
+    {
+        Name = clickedButton.name;
+        Player.Instance.transform.Find("Role").Find($"{Name}").gameObject.SetActive(true);
+        Canvas2.transform.Find("Button3").gameObject.SetActive(true);
+        Canvas2.transform.Find("Button4").gameObject.SetActive(true);
     }
 }

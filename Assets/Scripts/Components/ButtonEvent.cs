@@ -9,6 +9,7 @@ public class ButtonEvent : MonoBehaviour
     // 静态事件（所有实例共享）
     public static event ButtonClickHandler Archive;
     public static event ButtonClickHandler Role;
+    public static event ButtonClickHandler Class;
 
     void Start()
     {
@@ -19,6 +20,10 @@ public class ButtonEvent : MonoBehaviour
             if (btn.name.Contains("Archive"))
             {
                 Archive?.Invoke(btn);
+            }
+            else if (btn.name.Contains("Class"))
+            {
+                Class?.Invoke(btn);
             }
             else
             {
