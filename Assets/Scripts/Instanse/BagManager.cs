@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class BagManager : MonoBehaviour
 {
     public static BagManager Instanse;
+    public Button tool_Button;
     public Canvas canvas3;
     public InputField Page;
     private int page = 0;
+    private string Tool_name = "";
     private string Class = "1";
     public Dictionary<string, List<string>> tool { get; private set; } = new();
     private void Awake()
@@ -22,7 +24,6 @@ public class BagManager : MonoBehaviour
     public void ShowAllBag()
     {
         int i;
-        AddClass();
         for(i = 0;i < 10; i++)
         {
             canvas3.transform.Find("UI").Find("Bag").Find($"tool{i}").Find("Image").GetComponent<Image>().sprite = null;
@@ -91,6 +92,69 @@ public class BagManager : MonoBehaviour
         page = 0;
         Class = btn.name.Replace("Class", "");
         Check();
+    }
+    public void AddToolEvent()
+    {
+        ButtonEvent.Tool += ToolEvent;
+    }
+    public void DestroyToolEvent()
+    {
+        ButtonEvent.Tool -= ToolEvent;
+    }
+    public void ToolEvent(Button btn)
+    {
+        Transform use = canvas3.transform.Find("UI").Find("Bag").Find("Select").Find("Use");
+        tool_Button = btn;
+        try
+        {
+            Tool_name = btn.transform.Find("Image").GetComponent<Image>().sprite.name;
+        }
+        catch (Exception)
+        {
+            return;
+        }
+        if (Tool_name.StartsWith("2"))
+        {
+            use.Find("Text").GetComponent<Text>().text = "使用";
+        }
+        else if (Tool_name.StartsWith("3"))
+        {
+            use.Find("Text").GetComponent<Text>().text = "使用";
+            Select();
+        }
+        else if (Tool_name.StartsWith("4"))
+        {
+            use.Find("Text").GetComponent<Text>().text = "装备";
+            Select();
+        }
+        DestroyToolEvent();
+    }
+    public void Equip()
+    {
+        Transform Position = canvas3.transform.Find("UI").Find("Equipment").GetChild(Tool_name[1] - 48);
+        try
+        {
+            Player.Instance.transform.Find("Equipment").Find(Position.GetComponent<Image>().sprite.name).gameObject.SetActive(false);
+            Player.Instance.transform.Find("Role").gameObject.SetActive(false);
+            Player.Instance.transform.Find("Equipment").gameObject.SetActive(false);
+            Player.Instance.transform.Find("Role").gameObject.SetActive(true);
+            Player.Instance.transform.Find("Equipment").gameObject.SetActive(true);
+        }
+        catch (Exception)
+        {
+
+        }
+        Position.GetComponent<Image>().sprite = Resources.Load<Sprite>(Tool_name);
+        Player.Instance.transform.Find("Equipment").Find($"WPN_{Tool_name}").gameObject.SetActive(true);
+    }
+    public void Select()
+    {
+        canvas3.transform.Find("UI").Find("Bag").Find("Select").transform.position = Input.mousePosition;
+        canvas3.transform.Find("UI").Find("Bag").Find("Select").gameObject.SetActive(true);
+    }
+    public void CancelSelect()
+    {
+        canvas3.transform.Find("UI").Find("Bag").Find("Select").gameObject.SetActive(false);
     }
     public void AddTool(string Class, string Tool)
     {

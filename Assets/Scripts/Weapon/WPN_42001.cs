@@ -7,8 +7,8 @@ public class WPN_42001 : MonoBehaviour
     {
         e.Descrition("攻击附带#1#的真实伤害，#2#%概率触发暴击(爆伤固定50%)@20@20");
         Player.Instance.MakeProperty(e.HP, e.MP, e.ATK, e.DFS);
-        Player.Instance.AddProperty1("AttachedHit", 20);
-        Player.Instance.AddProperty1("CriticalHit", 20);
-        Player.Instance.AddProperty1("CriticalInjury", 50);
+        Player.Instance.AddProperty_Num("AttachedHit", 20);
+        Player.Instance.AddProperty_Num("CriticalHit", 20);
+        Player.Instance.AddProperty_Num("CriticalInjury", 50);
     }
 }

@@ -10,6 +10,7 @@ public class ButtonEvent : MonoBehaviour
     public static event ButtonClickHandler Archive;
     public static event ButtonClickHandler Role;
     public static event ButtonClickHandler Class;
+    public static event ButtonClickHandler Tool;
 
     void Start()
     {
@@ -24,6 +25,10 @@ public class ButtonEvent : MonoBehaviour
             else if (btn.name.Contains("Class"))
             {
                 Class?.Invoke(btn);
+            }
+            else if (btn.name.Contains("tool"))
+            {
+                Tool?.Invoke(btn);
             }
             else
             {

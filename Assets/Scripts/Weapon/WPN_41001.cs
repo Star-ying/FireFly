@@ -9,9 +9,13 @@ public class WPN_41001 : MonoBehaviour
     {
         e.Descrition("生命增加#1#%，攻击力增加当前最大生命#2#%的值@50@5");
         Player.Instance.MakeProperty(e.HP, e.MP, e.ATK, e.DFS);
-        Player.Instance.AddProperty("health",0.5f);
+        Player.Instance.AddProperty_Rate("health",0.5f);
         health = Player.Instance.Property["health"];
         Player.Instance.Property["attack"] += (int)(health * 0.05);
+    }
+    private void OnDisable()
+    {
+        
     }
     private void Update()
     {

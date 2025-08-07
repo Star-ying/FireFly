@@ -186,33 +186,40 @@ public class InformManager : MonoBehaviour
     }
     public void UpdateEquipment()
     {
-        List<string> equipment = new();
-        List<string> name = new();
+        List<(string,string)> equipment = new();
+        string temp = "";
         Transform equip = Player.Instance.transform.Find("Equipment");
         for (int i = 0;i < equip.childCount;i++)
         {
-            if (equip.GetChild(i).gameObject.activeSelf)
+            var e = equip.GetChild(i);
+            if (e.gameObject.activeSelf)
             {
-                if (equip.name.Contains("41"))
+                if (e.name.StartsWith("41"))
                 {
-                    equipment.Insert(0, equip.name);
-                    name.Insert(0, equip.name);
+                    temp = "Weapon";
                 }
-                else if (equip.name.Contains("42"))
+                else if (e.name.StartsWith("42"))
                 {
-                    equipment.Insert(1, equip.name);
-                    name.Insert(1, equip.name);
+                    temp = "Off_hand";
                 }
                 else
                 {
-                    equipment.Insert(2, equip.name);
-                    name.Insert(2, equip.name);
+                    temp = "Protector";
                 }
+                equipment.Add((e.name.Replace("WPN_",""), temp));
             }
+        }
+        equipment.Sort((p1,p2) => p1.Item1.CompareTo(p2.Item1));
+        List<string> Name = new();
+        List<string> Class = new();
+        foreach(var e in equipment)
+        {
+            Name.Add(e.Item1);
+            Class.Add(e.Item2);
         }
         if(equipment.Count != 0)
         {
-            sql.UpdateValues("Equipment", name.ToArray(), equipment.ToArray(), "A_ID", "=", $"{id}");
+            sql.UpdateValues("Equipment", Class.ToArray(), Name.ToArray(), "A_ID", "=", $"{id}");
         }
     }
     public void UpdatePlayer()

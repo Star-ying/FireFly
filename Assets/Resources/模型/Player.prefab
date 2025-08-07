@@ -172,12 +172,10 @@ MonoBehaviour:
   isAbove: 0
   isFire: 0
   isTalk: 0
-  Level: 0
-  Max_Exp: 0
-  margic: 0
-  Exp: 0
   fight_r: 2
   Ray_r: 10
+  Level: 0
+  Max_Exp: 0
 --- !u!1 &1959838470402241085
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +542,7 @@ Transform:
   m_GameObject: {fileID: 3594129241440544063}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.026628796}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -838,7 +836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1917924454531512886
 Transform:
   m_ObjectHideFlags: 0
@@ -1736,7 +1734,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1764,6 +1762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2688683440596332503}
+  - component: {fileID: 6848326037613571904}
   m_Layer: 0
   m_Name: WPN_43001
   m_TagString: Untagged
@@ -1786,6 +1785,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1917924454531512886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6848326037613571904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7651653662147566742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09de910e43d9864e9f7d1b3ebddae7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7948425721409018637
 GameObject:
   m_ObjectHideFlags: 0
