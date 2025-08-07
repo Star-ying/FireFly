@@ -77,6 +77,7 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
+        Debug.Log(Property["margic_rate"]);
         if (!isTalk &&
             GameManager.Exists)
         {
@@ -251,19 +252,21 @@ public class Player : MonoBehaviour
         Base_Property.Add("Base_margic", 0);
         Base_Property.Add("Base_attack", 0);
         Base_Property.Add("Base_defense", 0);
+        Base_Property.Add("margic_rate", 100);
         Base_Property.Add("AttachedHit",0);
         Base_Property.Add("CriticalHit", 0);
         Base_Property.Add("CriticalInjury", 0);
         Property.Add("health", 0);
+        Property.Add("margic", 0);
         Property.Add("attack", 0);
         Property.Add("defense", 0);
-        Property.Add("margic", 0);
-        Property.Add("Exp", 0);
-        Property.Add("bullet_size",20);
-        Property.Add("move_Speed", 15);
+        Property.Add("margic_rate", 100);
         Property.Add("AttachedHit", 0);
         Property.Add("CriticalHit", 0);
         Property.Add("CriticalInjury", 0);
+        Property.Add("Exp", 0);
+        Property.Add("bullet_size",20);
+        Property.Add("move_Speed", 15);
 }
     public void SetProperty(int HP,int MP,int ATK,int DFS)
     {
@@ -277,22 +280,22 @@ public class Player : MonoBehaviour
         transform.Find("Equipment").gameObject.SetActive(false);
         transform.Find("Equipment").gameObject.SetActive(true);
     }
-    public void MakeProperty(int HP,int MP,int ATK,int DFS)
+    public void MakeProperty(int HP, int MP, int ATK, int DFS)
     {
         Base_Property["Base_health"] += HP;
         Base_Property["Base_margic"] += MP;
         Base_Property["Base_attack"] += ATK;
         Base_Property["Base_defense"] += DFS;
         Property["health"] += HP;
+        Property["margic"] += MP;
         Property["attack"] += ATK;
         Property["defense"] += DFS;
-        Property["margic"] += MP;
     }
-    public void AddProperty(string property,float rate)
+    public void AddProperty_Rate(string property,float rate)
     {
         Property[property] += (int)(Base_Property[$"Base_{property}"] * rate);
     }
-    public void AddProperty1(string property,int number)
+    public void AddProperty_Num(string property,int number)
     {
         Base_Property[property] += number;
         Property[property] += number;
@@ -309,5 +312,9 @@ public class Player : MonoBehaviour
         {
 
         }
+    }
+    public void GetMargic(int margic)
+    {
+        Property["margic"] += (int)(margic * Property["margic_rate"] * 0.01);
     }
 }
