@@ -1,20 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
-public class QiqiController : MonoBehaviour
+public class QiqiController : LivingEntity
 {
     [Header("基础属性")]
     public float health = 100f;
     public float speed = 2f;
     public int damage = 10;
 
-    [Header("难度系数")]
-    public float healthMultiplier = 1.1f; 
-    public float speedMultiplier = 1.05f; 
+    private Transform player;
+    public string poolTag = "Qiqi_Normal";
 
-    private Transform player; 
-
-    void Start()
+    protected override void Start()
     {
         
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -29,43 +26,32 @@ public class QiqiController : MonoBehaviour
     void Update()
     {
         if (player != null)
-        {
-            
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                player.position,
-                speed * Time.deltaTime
-            );
+        {  
+            transform.position = Vector2.MoveTowards(transform.position,player.position,speed * Time.deltaTime);
         }
     }
 
     
-    public void SetDifficulty(int waveNumber)
-    {
-        health *= Mathf.Pow(healthMultiplier, waveNumber - 1);
-        speed *= Mathf.Pow(speedMultiplier, waveNumber - 1);
-    }
+    //public void SetDifficulty(int waveNumber)
+    //{
+    //    health *= Mathf.Pow(EnemySpawner.healthMultiplier, waveNumber - 1);
+    //    speed *= Mathf.Pow(speedMultiplier, waveNumber - 1);
+    //}
 
     
-    public void TakeDamage(float damageAmount)
-    {
-        health -= damageAmount;
+    //public void TakeDamage(float damageAmount)
+    //{
+    //    health -= damageAmount;
 
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-
-    void Die()
-    {
-
-        Destroy(gameObject);
-
-
-    }
-
+    //    if (health <= 0)
+    //    {
+    //        Die();
+    //    }
+    //}
+    //public void Die()
+    //{
+    //    EnemyPool.Instance.ReturnToPool(poolTag, gameObject);
+    //}
 
     void OnCollisionEnter2D(Collision2D collision)
     {

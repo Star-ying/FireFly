@@ -1,92 +1,54 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("敌人预设")]
-    public GameObject qiqiPrefab; 
-
-    [Header("生成设置")]
-    public Transform[] spawnPoints; 
-    public float initialSpawnRate = 2f; 
-    public float spawnRateDecrease = 0.1f; 
-    public int initialEnemiesPerWave = 5; 
-    public int enemiesIncreasePerWave = 2; 
+    [SerializeField] private Transform[] SpawnPoints;
 
     [Header("波次设置")]
-    public float timeBetweenWaves = 5f; 
+    public Wave[] waves;
+    private Wave _CurrentWave;
+    private int CurrentWave;
 
-    private int currentWave = 0; 
-    private float currentSpawnRate; 
-    private int enemiesToSpawn; 
-    private bool isSpawning = false; 
+    private int _EnemyRemainingAliveCount;
 
+    [Header("难度系数")]
+    public float healthMultiplier = 1.1f;
+    public float speedMultiplier = 1.05f;
 
-    void Start()
+     void Start()
     {
-        currentSpawnRate = initialSpawnRate;
-        StartCoroutine(WaveManager());
-    }
-
-    
-    IEnumerator WaveManager()
-    {
-        while (true) 
-        {
-           
-            yield return new WaitForSeconds(timeBetweenWaves);
-
-            
-            currentWave++;
-            Debug.Log("开始第 " + currentWave + " 波攻击！");
-
-            
-            enemiesToSpawn = initialEnemiesPerWave + (currentWave - 1) * enemiesIncreasePerWave;
-
-            
-            isSpawning = true;
-            StartCoroutine(SpawnEnemies());
-
-            
-            yield return new WaitWhile(() => isSpawning);
-
-            
-            currentSpawnRate = Mathf.Max(0.5f, initialSpawnRate - (currentWave * spawnRateDecrease));
-        }
-    }
-
-   
-    IEnumerator SpawnEnemies()
-    {
-        for (int i = 0; i < enemiesToSpawn; i++)
-        {
-            SpawnSingleQiqi();
-            yield return new WaitForSeconds(currentSpawnRate);
-        }
-
-        isSpawning = false;
-    }
-
-    
-    void SpawnSingleQiqi()
-    {
-        if (spawnPoints.Length == 0 || qiqiPrefab == null)
+        if (SpawnPoints.Length == 0)
         {
             Debug.LogError("生成点或敌人预设未设置！");
             return;
         }
+        StartCoroutine(WaveManager());
+    }
 
-        
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-
-
-
-        QiqiController qiqiController = Instantiate(qiqiPrefab, spawnPoint.position, Quaternion.identity).GetComponent<QiqiController>();
-        if (qiqiController != null)
+    private IEnumerator WaveManager()
+    {
+        CurrentWave++;
+        Debug.Log("开始第 " + CurrentWave + " 波攻击！");
+        if (CurrentWave - 1 < waves.Length)
         {
-            qiqiController.SetDifficulty(currentWave);
+            _CurrentWave = waves[CurrentWave - 1];
+            _EnemyRemainingAliveCount = _CurrentWave.EnemyCount;
+            for (int i = 1; i < _CurrentWave.EnemyCount; i++)
+            {
+                int spawnindex = Random.Range(0, SpawnPoints.Length);
+                _ = Instantiate(_CurrentWave.qiqiPrefab, SpawnPoints[spawnindex].position, Quaternion.identity);
+                //QiqiController.OnDeath += onEnemyDeath;
+                yield return new WaitForSeconds(_CurrentWave.TimeBetweenSpawn);
+            }
+        }
+    }
+    private void onEnemyDeath()
+    {
+        _EnemyRemainingAliveCount--;
+        if (_EnemyRemainingAliveCount == 0)
+        {
+            StartCoroutine(WaveManager());
         }
     }
 }
