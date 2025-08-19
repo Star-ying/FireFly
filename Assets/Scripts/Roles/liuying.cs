@@ -37,12 +37,12 @@ public class liuying : MonoBehaviour
                 }
                 Player.Instance.transform.Find("Animitor").transform.Find("Metamorphose").gameObject.transform.position = Player.Instance.transform.position;
                 Player.Instance.transform.Find("Animitor").transform.Find("Metamorphose").gameObject.SetActive(true);
-                StartCoroutine(Player.Instance.beSaMu());
+                StartCoroutine(Player.Instance.BeSaMu());
             }
             else if (Input.GetKeyDown(KeyCode.K) && Player.Instance.Keys.GetValueOrDefault("K"))
             {
                 Player.Instance.Keys["K"] = false;
-                StartCoroutine(Player.Instance.dodge());
+                StartCoroutine(Player.Instance.Dodge());
                 StartCoroutine(Player.Instance.EnableAfterDelay(0.6f, "K"));
             }
             else if (Input.GetKeyDown(KeyCode.L) && Player.Instance.Keys.GetValueOrDefault("L"))

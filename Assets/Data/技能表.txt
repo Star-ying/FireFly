@@ -1,0 +1,7 @@
+Bullet:80
+Fight_Square:100
+BigFist:200
+Fist:150
+Ray:180
+Ripple:80
+Fight_Circle:360

@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using System;
 using UnityEngine.UI;
+using Random = System.Random;
+using System.IO;
 
 public class Player : MonoBehaviour
 {
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < Property["bullet_size"]; i++)
         {
             GameObject obj = Instantiate(transform.Find("Components").Find("Bullet").gameObject);
-            obj.name = $"{i}";
+            obj.name = $"{obj.name}{i}";
             obj.SetActive(false);
             obj.GetComponent<Bullet>().SetSpawner(gameObject); // 挂载下方脚本
             Bullet.Enqueue(obj);
@@ -56,7 +58,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < 20; i++)
         {
             GameObject obj = Instantiate(transform.Find("Components").Find("Ripple").gameObject);
-            obj.name = $"{i}";
+            obj.name = $"{obj.name}{i}";
             obj.SetActive(false);
             Ripple.Enqueue(obj);
         }
@@ -152,7 +154,7 @@ public class Player : MonoBehaviour
         }
         transform.Find("Role").Find("samu").GetComponent<CircleCollider2D>().enabled = true;
     }
-    public IEnumerator dodge()
+    public IEnumerator Dodge()
     {
         Property["move_Speed"] *= 2;
         transform.Find("Role").Find("samu").GetComponent<CircleCollider2D>().enabled = false;
@@ -194,7 +196,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Keys[key] = true;
     }
-    public IEnumerator beSaMu()
+    public IEnumerator BeSaMu()
     {
         yield return new WaitForSeconds(0.4f);
         transform.Find("Role").Find("liuying").gameObject.SetActive(false);
@@ -316,5 +318,26 @@ public class Player : MonoBehaviour
     public void GetMargic(int margic)
     {
         Property["margic"] += (int)(margic * Property["margic_rate"] * 0.01);
+    }
+    public int Damage(int E_defense,string W_name)
+    {
+        using (StreamReader reader = new(@"Assets/Data/技能表.txt"))
+        {
+            while (!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                var e = line.Split(':');
+                if (W_name.Contains(e[0]))
+                {
+                    Random random = new Random();
+                    if (random.NextDouble() < Property["CriticalHit"])
+                    {
+                        return (Property["attack"] - E_defense) * (Property["CriticalInjury"] + 100) * Convert.ToInt32(e[1]) / 100 / 100 + Property["AttachedHit"];
+                    }
+                    return (Property["attack"] - E_defense) * Convert.ToInt32(e[1]) / 100 + Property["AttachedHit"];
+                }
+            }
+        }
+        return 0;
     }
 }
