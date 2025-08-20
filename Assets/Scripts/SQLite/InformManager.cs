@@ -142,7 +142,7 @@ public class InformManager : MonoBehaviour
         sql.CreateTable($"Talk{id}", new string[] { "NPC", "Progress" }, new string[] { "STRING", "INTEGER" });
         ProgressManager.Instanse.SetProgress(new int[] { });
         sql.InsertValues("Equipment", new Dictionary<string, object> {["A_ID"] = id});
-        Player.Instance.Level = 1;
+        Player.Instance.Property["Level"] = 1;
     }
     public void GetEquipments()
     {
@@ -224,7 +224,7 @@ public class InformManager : MonoBehaviour
     }
     public void UpdatePlayer()
     {
-        sql.UpdateValues("Archive", new string[] { "Exp", "Level" }, new string[] { $"{Player.Instance.Property["Exp"]}", $"{Player.Instance.Level}" }, "ID","=",$"{id}");
+        sql.UpdateValues("Archive", new string[] { "Exp", "Level" }, new string[] { $"{Player.Instance.Property["Exp"]}", $"{Player.Instance.Property["Level"]}" }, "ID","=",$"{id}");
     }
     public void UpdateTalk()
     {
@@ -258,7 +258,7 @@ public class InformManager : MonoBehaviour
             id = Convert.ToInt64(archive.Find("ID").GetComponent<Text>().text);
             Name = archive.Find("Image").GetComponent<Image>().sprite.name;
             Player.Instance.Property["Exp"] = Convert.ToInt32(archive.Find("Exp").GetComponent<Text>().text.Split("Exp:")[1]);
-            Player.Instance.Level = Convert.ToInt32(archive.Find("Level").GetComponent<Text>().text.Split("Level:")[1]);
+            Player.Instance.Property["Level"] = Convert.ToInt32(archive.Find("Level").GetComponent<Text>().text.Split("Level:")[1]);
             Player.Instance.transform.Find("Role").Find($"{Name}").gameObject.SetActive(true);
             GetBag();
             GetEquipments();
@@ -282,6 +282,7 @@ public class InformManager : MonoBehaviour
     private void RoleEvent(Button clickedButton)
     {
         Name = clickedButton.name;
+        Player.Instance.SetExp();
         Player.Instance.transform.Find("Role").Find($"{Name}").gameObject.SetActive(true);
         Canvas2.transform.Find("Button3").gameObject.SetActive(true);
         Canvas2.transform.Find("Button4").gameObject.SetActive(true);
