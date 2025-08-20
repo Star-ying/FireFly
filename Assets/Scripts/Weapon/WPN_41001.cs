@@ -21,8 +21,8 @@ public class WPN_41001 : MonoBehaviour
     {
         if(Player.Instance.Property["health"] != health)
         {
+            Player.Instance.Property["attack"] += (int)((Player.Instance.Property["health"]-health) * 0.05);
             health = Player.Instance.Property["health"];
-            Player.Instance.Property["attack"] += (int)(Player.Instance.Property["health"] * 0.05);
         }
     }
 }

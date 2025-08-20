@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,7 +70,14 @@ public class ProgressManager : MonoBehaviour
     {
         for(int i = 0;i< transform.childCount; i++)
         {
-            Progress.Add(transform.GetChild(i).gameObject.name, i < progress.Length?progress[i]:0);
+            try
+            {
+                Progress.Add(transform.GetChild(i).gameObject.name, i < progress.Length ? progress[i] : 0);
+            }
+            catch (Exception)
+            {
+                Progress[transform.GetChild(i).gameObject.name] = i < progress.Length ? progress[i] : 0;
+            }
             transform.GetChild(i).gameObject.SetActive(true);
         }
     }

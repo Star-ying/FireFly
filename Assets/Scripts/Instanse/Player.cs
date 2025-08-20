@@ -13,9 +13,11 @@ public class Player : MonoBehaviour
 
     public Queue<GameObject> Ripple = new();
     public Queue<GameObject> Bullet = new();
+    public Queue<int> max_exp = new();
     public Dictionary<string, bool> Keys = new();
     public Dictionary<string, int> Base_Property = new();
     public Dictionary<string, int> Property = new();
+    public int loss_health = 0;
 
     public bool isSaMu = false;
     public bool isFight = false;
@@ -27,16 +29,13 @@ public class Player : MonoBehaviour
     public float fight_r = 2f;
     public float Ray_r = 10f;
 
-    public int Level = 1;
-    public int Max_Exp = 100;
-
     private int bullets = 0;
     private float time = 0;
 
     private Vector2 movement;
     private float x = 0;
     private float y = 0;
-
+    public float delta_time = 0f;
     public void Awake()
     {
         Instance = this;
@@ -79,9 +78,21 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-        Debug.Log(Property["margic_rate"]);
+        delta_time += Time.deltaTime;
+        if (delta_time >= 1f)
+        {
+            loss_health += 1;
+            delta_time = 0;
+        }
+        if(Property["Exp"] >= Property["Max_Exp"] &&
+            GameManager.Instance.isPlaying)
+        {
+            Property["Max_Exp"] = max_exp.Dequeue();
+            Property["Level"] += 1;
+            Property["Exp"] -= Property["Max_Exp"];
+        }
         if (!isTalk &&
-            GameManager.Exists)
+            GameManager.Instance.isPlaying)
         {
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
@@ -267,9 +278,32 @@ public class Player : MonoBehaviour
         Property.Add("CriticalHit", 0);
         Property.Add("CriticalInjury", 0);
         Property.Add("Exp", 0);
+        Property.Add("Level", 0);
+        Property.Add("Max_Exp", 0);
         Property.Add("bullet_size",20);
         Property.Add("move_Speed", 15);
 }
+    public void SetExp()
+    {
+        using (StreamReader reader = new(@"Assets/Data/¾­Ñé±í.txt"))
+        {
+            int i = 0;
+            while (!reader.EndOfStream)
+            {
+                if (i < Property["Level"])
+                {
+                    i++; 
+                    reader.ReadLine();
+                }
+                else
+                {
+                    string line = reader.ReadLine();
+                    max_exp.Enqueue(Convert.ToInt32(line));
+                }
+            }
+            Property["Max_Exp"] = max_exp.Dequeue();
+        }
+    }
     public void SetProperty(int HP,int MP,int ATK,int DFS)
     {
         Base_Property["Base_health"] = HP;
