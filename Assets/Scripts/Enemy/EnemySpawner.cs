@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -13,23 +14,35 @@ public class EnemySpawner : MonoBehaviour
     private int _EnemyRemainingAliveCount;
 
     [Header("难度系数")]
-    public float healthMultiplier = 1.1f;
-    public float speedMultiplier = 1.05f;
+    public float healthMultiplierInspector = 1.1f;
+    public float speedMultiplierInspector = 1.05f;
+    public static float healthMultiplier;
+    public static float speedMultiplier;
 
-     void Start()
+    private void Start()
     {
-        if (SpawnPoints.Length == 0)
+        healthMultiplier = healthMultiplierInspector;
+        speedMultiplier = speedMultiplierInspector;
+        
+        if (SpawnPoints.Length != 0&&GameManager.Exists )
         {
-            Debug.LogError("生成点或敌人预设未设置！");
-            return;
+            GameManager.Instance.GameStart.AddListener(StartSpawning);
+            GameManager.Instance.GameOver.AddListener(StopSpawning);
         }
-        StartCoroutine(WaveManager());
     }
 
+    public void StartSpawning()
+    {
+        StartCoroutine(WaveManager());
+    }
+    public void StopSpawning()
+    {
+        StopAllCoroutines();
+    }
     private IEnumerator WaveManager()
     {
         CurrentWave++;
-        Debug.Log("开始第 " + CurrentWave + " 波攻击！");
+        //Debug.Log("开始第 " + CurrentWave + " 波攻击！");
         if (CurrentWave - 1 < waves.Length)
         {
             _CurrentWave = waves[CurrentWave - 1];
@@ -37,10 +50,15 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 1; i < _CurrentWave.EnemyCount; i++)
             {
                 int spawnindex = Random.Range(0, SpawnPoints.Length);
-                _ = Instantiate(_CurrentWave.qiqiPrefab, SpawnPoints[spawnindex].position, Quaternion.identity);
-                //QiqiController.OnDeath += onEnemyDeath;
+                QiqiController qiqiController= Instantiate(_CurrentWave.qiqiPrefab, SpawnPoints[spawnindex].position, Quaternion.identity);
+                qiqiController.OnDeath += onEnemyDeath;
                 yield return new WaitForSeconds(_CurrentWave.TimeBetweenSpawn);
             }
+        }
+        else
+        {
+            CurrentWave = 0;
+            StartCoroutine(WaveManager());
         }
     }
     private void onEnemyDeath()
